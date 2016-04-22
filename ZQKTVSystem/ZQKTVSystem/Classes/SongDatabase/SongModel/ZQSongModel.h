@@ -29,8 +29,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZQBaseDBModel.h"
 
-@interface ZQSongModel : NSObject
+@interface ZQSongModel : ZQBaseDBModel
 
 @property (nonatomic, strong) NSString *songName;
 

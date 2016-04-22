@@ -16,8 +16,10 @@
 #import "SingleInstance.h"
 #import "ZQExtraUnit.h"
 #import "ZQAccountTools.h"
-
-
+#import "ZQLineView.h"
+#import "ZQUserModel.h"
+#import "ZQSongModel.h"
+#import "ZQFMDBTool.h"
 //************Define****************
 
 #define kScrenWidth      ([UIScreen mainScreen].bounds.size.width)
@@ -26,6 +28,8 @@
 
 #define kViewBgColor    [UIColor whiteColor]
 #define kThemeColor     COLOR_BLUE_
+
+#define kWhiteColor     [UIColor whiteColor]
 
 static const CGFloat kBodyFontSize = 14.0;
 static const CGFloat kHeadFontSize = 16.0;

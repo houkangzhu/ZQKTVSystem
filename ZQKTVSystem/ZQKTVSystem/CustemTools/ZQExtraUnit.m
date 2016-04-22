@@ -87,4 +87,8 @@
     label.textAlignment = textAlignment;
     return label;
 }
+
++ (void)showAlertWithTitle:(NSString *)title {
+    [[[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+}
 @end

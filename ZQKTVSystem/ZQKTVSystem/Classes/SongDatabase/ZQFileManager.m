@@ -49,4 +49,36 @@
     
     return [fm createFileAtPath:filePath contents:nil attributes:nil];
 }
+
++ (BOOL) filePathCreat:(NSString *)path {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if (![fm fileExistsAtPath:path]) {
+        return [fm createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return YES;
+}
+@end
+
+@implementation ZQFileManager (DatabaseFile)
+
++ (NSString *)getSystemSongDBPath {
+    
+    NSString *folderName = [self getDocumentPathWithFolderName:@"songs"];
+    
+    [self filePathCreat:folderName];
+    NSString *path = [folderName stringByAppendingPathComponent:kSystemSongDBName];
+    return path;
+}
+
++ (NSString *)getUserDatabasePath {
+    
+    NSString *folderName = [self getDocumentPathWithFolderName:@"users"];
+    [self filePathCreat:folderName];
+    NSString *path = [folderName stringByAppendingPathComponent:kUserDatabaseName];
+
+    
+    NSLog(@"数据库路径----\n%@", path);
+    return path;
+}
+
 @end

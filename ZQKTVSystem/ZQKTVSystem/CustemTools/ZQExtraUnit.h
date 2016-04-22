@@ -68,4 +68,5 @@
                        textColor:(UIColor *)textColor
                    textAlignment:(NSTextAlignment)textAlignment;
 
++ (void)showAlertWithTitle:(NSString *)title;
 @end

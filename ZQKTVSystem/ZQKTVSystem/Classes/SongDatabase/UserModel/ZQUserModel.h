@@ -29,10 +29,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZQBaseDBModel.h"
 
 typedef NS_ENUM(NSUInteger, ZQUserType) {
     ///普通用户--听歌
-    ZQUserTypeCommon    = 1<<0,
+    ZQUserTypeCommon    = 0,
     ///管理员---配置数据
     ZQUserTypeAdmin     = 1<<1,
     ///最大权限者---可以用来管理用户
@@ -41,12 +42,18 @@ typedef NS_ENUM(NSUInteger, ZQUserType) {
     ZQUserTypeUnknown   = 1<<3,
 };
 
-@interface ZQUserModel : NSObject
+@interface ZQUserModel : ZQBaseDBModel
 
+@property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *password;
-@property (nonatomic, strong) NSString *age;
-@property (nonatomic, strong) NSString *sex;
-@property (nonatomic, assign) ZQUserType *userType;
+@property (nonatomic, strong) NSString *passWord;
+//@property (nonatomic, strong) NSString *age;
+//@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, assign) ZQUserType userType;
 
++ (NSString *)getCreateTableSQL;
+
+- (NSString *)getInsertSQL;
+
++ (NSString *)getQureyByUserNameSql:(NSString *)userName;
 @end

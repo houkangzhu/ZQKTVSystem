@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4534342C1CCA5E7F00577089 /* login_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4534342B1CCA5E7F00577089 /* login_bg.jpg */; };
+		4534342E1CCA61AD00577089 /* header_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4534342D1CCA61AD00577089 /* header_icon.jpg */; };
+		453434351CCA63D300577089 /* ZQLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 453434341CCA63D300577089 /* ZQLineView.m */; };
+		453434371CCA66AD00577089 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 453434361CCA66AD00577089 /* back@2x.png */; };
+		4534343D1CCA6D8400577089 /* ZQFMDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534343C1CCA6D8400577089 /* ZQFMDBTool.m */; };
+		453434401CCA7E9700577089 /* ZQBaseDBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4534343F1CCA7E9700577089 /* ZQBaseDBModel.m */; };
 		45E2D46A1CC38ADB00F93E2A /* ZQAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2D4371CC38ADA00F93E2A /* ZQAccount.m */; };
 		45E2D46B1CC38ADB00F93E2A /* ZQAccountTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2D4391CC38ADA00F93E2A /* ZQAccountTools.m */; };
 		45E2D46F1CC38ADB00F93E2A /* ZQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2D44B1CC38ADA00F93E2A /* ZQLoginViewController.m */; };
@@ -51,6 +57,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4534342B1CCA5E7F00577089 /* login_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_bg.jpg; sourceTree = "<group>"; };
+		4534342D1CCA61AD00577089 /* header_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header_icon.jpg; sourceTree = "<group>"; };
+		453434331CCA63D300577089 /* ZQLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQLineView.h; sourceTree = "<group>"; };
+		453434341CCA63D300577089 /* ZQLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQLineView.m; sourceTree = "<group>"; };
+		453434361CCA66AD00577089 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		4534343B1CCA6D8400577089 /* ZQFMDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFMDBTool.h; sourceTree = "<group>"; };
+		4534343C1CCA6D8400577089 /* ZQFMDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFMDBTool.m; sourceTree = "<group>"; };
+		4534343E1CCA7E9700577089 /* ZQBaseDBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQBaseDBModel.h; sourceTree = "<group>"; };
+		4534343F1CCA7E9700577089 /* ZQBaseDBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseDBModel.m; sourceTree = "<group>"; };
 		45E2D4361CC38ADA00F93E2A /* ZQAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAccount.h; sourceTree = "<group>"; };
 		45E2D4371CC38ADA00F93E2A /* ZQAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAccount.m; sourceTree = "<group>"; };
 		45E2D4381CC38ADA00F93E2A /* ZQAccountTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAccountTools.h; sourceTree = "<group>"; };
@@ -152,13 +167,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		453434321CCA63D300577089 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				453434331CCA63D300577089 /* ZQLineView.h */,
+				453434341CCA63D300577089 /* ZQLineView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		45E2D4341CC38ADA00F93E2A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				45E2D47C1CC38B6900F93E2A /* Base */,
+				45E2D4591CC38ADB00F93E2A /* SongDatabase */,
 				45E2D4351CC38ADA00F93E2A /* Account */,
 				45E2D4481CC38ADA00F93E2A /* Login */,
-				45E2D4591CC38ADB00F93E2A /* SongDatabase */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -199,12 +223,16 @@
 		45E2D4591CC38ADB00F93E2A /* SongDatabase */ = {
 			isa = PBXGroup;
 			children = (
+				4534343E1CCA7E9700577089 /* ZQBaseDBModel.h */,
+				4534343F1CCA7E9700577089 /* ZQBaseDBModel.m */,
 				45E2D45A1CC38ADB00F93E2A /* SongModel */,
 				45E2D45D1CC38ADB00F93E2A /* UserModel */,
 				45E2D4601CC38ADB00F93E2A /* ZQFileManager.h */,
 				45E2D4611CC38ADB00F93E2A /* ZQFileManager.m */,
 				45E2D4621CC38ADB00F93E2A /* ZQFMDBManager.h */,
 				45E2D4631CC38ADB00F93E2A /* ZQFMDBManager.m */,
+				4534343B1CCA6D8400577089 /* ZQFMDBTool.h */,
+				4534343C1CCA6D8400577089 /* ZQFMDBTool.m */,
 			);
 			path = SongDatabase;
 			sourceTree = "<group>";
@@ -230,6 +258,7 @@
 		45E2D47C1CC38B6900F93E2A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				453434321CCA63D300577089 /* View */,
 				45E2D47D1CC38B6900F93E2A /* Controller */,
 			);
 			path = Base;
@@ -270,6 +299,9 @@
 		45E2D49E1CC38D6500F93E2A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				453434361CCA66AD00577089 /* back@2x.png */,
+				4534342D1CCA61AD00577089 /* header_icon.jpg */,
+				4534342B1CCA5E7F00577089 /* login_bg.jpg */,
 				45E2D4AD1CC3A0F700F93E2A /* launching_bg.png */,
 				45E2D4A71CC39DB000F93E2A /* redu_icon@2x.png */,
 				45E2D4A51CC39BD400F93E2A /* geshou_icon@2x.png */,
@@ -448,9 +480,12 @@
 				45E2D4721CC38ADB00F93E2A /* Login.storyboard in Resources */,
 				45E2D4A81CC39DB000F93E2A /* redu_icon@2x.png in Resources */,
 				45E2D4AE1CC3A0F700F93E2A /* launching_bg.png in Resources */,
+				4534342C1CCA5E7F00577089 /* login_bg.jpg in Resources */,
 				6835B8191CBF406F002A4746 /* LaunchScreen.storyboard in Resources */,
 				45E2D4A61CC39BD400F93E2A /* geshou_icon@2x.png in Resources */,
 				6835B8161CBF406F002A4746 /* Assets.xcassets in Resources */,
+				4534342E1CCA61AD00577089 /* header_icon.jpg in Resources */,
+				453434371CCA66AD00577089 /* back@2x.png in Resources */,
 				45E2D4991CC38BF300F93E2A /* Info.plist in Resources */,
 				6835B8141CBF406F002A4746 /* Main.storyboard in Resources */,
 				45E2D4A41CC399E300F93E2A /* tuijian_icon@2x.png in Resources */,
@@ -518,10 +553,13 @@
 				45E2D4981CC38BF300F93E2A /* FMResultSet.m in Sources */,
 				45E2D4771CC38ADB00F93E2A /* ZQFileManager.m in Sources */,
 				6835B8391CBF43A8002A4746 /* TAPageControl.m in Sources */,
+				4534343D1CCA6D8400577089 /* ZQFMDBTool.m in Sources */,
 				45E2D4951CC38BF300F93E2A /* FMDatabaseAdditions.m in Sources */,
 				6835B8111CBF406F002A4746 /* ViewController.m in Sources */,
+				453434351CCA63D300577089 /* ZQLineView.m in Sources */,
 				6835B83D1CBF43A8002A4746 /* ZQExtraUnit.m in Sources */,
 				45E2D4761CC38ADB00F93E2A /* ZQUserModel.m in Sources */,
+				453434401CCA7E9700577089 /* ZQBaseDBModel.m in Sources */,
 				6835B8381CBF43A8002A4746 /* TADotView.m in Sources */,
 				6835B83C1CBF43A8002A4746 /* UIView+SDExtension.m in Sources */,
 				6835B8361CBF43A8002A4746 /* TAAbstractDotView.m in Sources */,
@@ -658,7 +696,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZQKTVSystem/ZQKTVPrefixHeader.pch";
 				INFOPLIST_FILE = ZQKTVSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangqi.ZQKTVSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -673,7 +711,7 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZQKTVSystem/ZQKTVPrefixHeader.pch";
 				INFOPLIST_FILE = ZQKTVSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangqi.ZQKTVSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";

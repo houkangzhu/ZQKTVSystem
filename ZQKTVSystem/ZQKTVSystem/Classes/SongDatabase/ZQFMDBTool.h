@@ -1,6 +1,6 @@
 //
-//  ZQFileManager.h
-//  ZQMusicPlayer
+//  ZQFMDBTool.h
+//  ZQKTVSystem
 //
 //                            _ooOoo_
 //                           o8888888o
@@ -24,29 +24,26 @@
 //                   佛祖保佑           永无BUG
 //         .............................................
 //
-//  Created by 侯康柱 on 16/4/9.
-//  Copyright © 2016年 HKZ. All rights reserved.
+//  Created by 侯康柱 on 16/4/22.
+//  Copyright © 2016年 侯康柱. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+@class ZQUserModel;
+@class FMDatabase;
+@interface ZQFMDBTool : NSObject
 
-#define kSystemSongDBName   @"systemSongDatabase.db"
-
-#define kUserDatabaseName   @"userDatabase.db"
-
-@interface ZQFileManager : NSObject
-
-+ (NSString *)getDocumentPath;
-
-+ (NSString *)getDocumentPathWithFolderName:(NSString *)folder;
-
-+ (BOOL)createFilePath:(NSString *)filePath isfile:(BOOL)isfile;
++ (BOOL)database:(FMDatabase *)fmdb execUpdate:(NSString *)sqlStr;
++ (NSMutableArray *)database:(FMDatabase *)fmdb
+                   execQurey:(NSString *)sqlStr
+                  modelClass:(Class)ModelCls;
 @end
 
-@interface ZQFileManager (DatabaseFile)
+@interface ZQFMDBTool (UserOperate)
 
-+ (NSString *)getSystemSongDBPath;
++ (BOOL)createUserTabel ;
 
-+ (NSString *)getUserDatabasePath;
++ (BOOL)insertUserToDatabase:(ZQUserModel *)user;
 
++ (ZQUserModel *)qureyUserWithUserName:(NSString *)userName;
 @end

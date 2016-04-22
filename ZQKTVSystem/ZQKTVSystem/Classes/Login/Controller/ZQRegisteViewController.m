@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *userTypeSC;
 @property (weak, nonatomic) IBOutlet UIButton *registeBtn;
+@property (weak, nonatomic) IBOutlet ZQLineView *phonelineView;
+@property (weak, nonatomic) IBOutlet ZQLineView *pswLineView;
 
 @end
 
@@ -21,6 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self addDefaultBack];
+    
+    self.phonelineView.lineColor = kWhiteColor;
+    self.pswLineView.lineColor = kWhiteColor;
+    
+    [ZQExtraUnit viewSetCorners:self.registeBtn cornersSize:6.0f];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,10 +38,29 @@
 }
 - (IBAction)registeAction:(id)sender {
     if (stringIsEmpty(self.userNameTF.text)) {
-        
+         [ZQExtraUnit showAlertWithTitle:@"手机号不能为空！"];
         return;
     }
+    if (stringIsEmpty(self.passwordTF.text)) {
+         [ZQExtraUnit showAlertWithTitle:@"密码不能为空！"];
+        return;
+    }
+    
+    ZQUserModel *newUser = [ZQUserModel new];
+    newUser.userName = self.userNameTF.text;
+    newUser.passWord = self.passwordTF.text;
+    newUser.userType = ZQUserTypeCommon;
+    
+    BOOL insertOK = [ZQFMDBTool insertUserToDatabase:newUser];
+    
+    [ZQExtraUnit showAlertWithTitle:insertOK?@"注册成功！":@"注册失败！(该用户已存在)"];
+    
+    if (insertOK) {
+        self.userNameTF.text = @"";
+        self.passwordTF.text = @"";
+    }
 }
+
 
 /*
 #pragma mark - Navigation

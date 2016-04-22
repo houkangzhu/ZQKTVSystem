@@ -34,6 +34,7 @@
 
 SingleInterface(ZQFMDBManager)
 
-- (FMDatabase *)fmdb;
+- (FMDatabase *)systemFmdb;
 
+- (FMDatabase *)userFmdb;
 @end

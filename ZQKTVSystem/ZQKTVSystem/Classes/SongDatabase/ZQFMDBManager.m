@@ -30,21 +30,31 @@
 
 #import "ZQFMDBManager.h"
 #import "FMDB.h"
+#import "ZQFileManager.h"
 @implementation ZQFMDBManager
 {
-    FMDatabase *_fmdb;
+    FMDatabase *_systemFmdb;
+    
+    FMDatabase *_userFmdb;
 }
+
 SingleImplementation(ZQFMDBManager)
 
 - (instancetype)init {
     if (self = [super init]) {
-        _fmdb = [FMDatabase databaseWithPath:@""];
+        _systemFmdb = [FMDatabase databaseWithPath:[ZQFileManager getSystemSongDBPath]];
     }
     return self;
 }
 
-- (FMDatabase *)fmdb {
-    return _fmdb;
+- (FMDatabase *)systemFmdb {
+    return _systemFmdb;
 }
 
+- (FMDatabase *)userFmdb {
+    if (!_userFmdb) {
+        _userFmdb =  [FMDatabase databaseWithPath:[ZQFileManager getUserDatabasePath]];
+    }
+    return _userFmdb;
+}
 @end

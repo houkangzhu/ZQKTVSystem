@@ -24,6 +24,15 @@
 }
 
 - (void)addDefaultBack {
+    if (self.navigationController.navigationBarHidden) {
+        UIButton *backBtn = [ZQExtraUnit createButtonWithTitle:@"返回" frame:CGRectMake(10, 10, 60, 40) nomImage:nil taget:self select:@selector(backAction)];
+        [backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [backBtn setTitleColor:kWhiteColor forState:UIControlStateNormal];
+        [self.view addSubview:backBtn];
+        [self.view bringSubviewToFront:backBtn];
+        
+        return;
+    }
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
 }
 

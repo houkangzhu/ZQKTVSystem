@@ -11,6 +11,7 @@
 @interface ZQMainLoginVC ()
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *registBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImg;
 
 @end
 
@@ -22,14 +23,15 @@
     [self setSubViews];
 }
 
-- (void)backAction {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)backAction {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 - (void)setSubViews {
     [self addDefaultBack];
-    [ZQExtraUnit viewSetBorder:self.loginBtn border:1.0 borderColor:kThemeColor corner:6.0];
-    [ZQExtraUnit viewSetBorder:self.registBtn border:1.0 borderColor:kThemeColor corner:6.0];
+    [ZQExtraUnit viewSetBorder:self.loginBtn border:1.0 borderColor:kWhiteColor corner:6.0];
+    [ZQExtraUnit viewSetBorder:self.registBtn border:1.0 borderColor:kWhiteColor corner:6.0];
+    [ZQExtraUnit viewSetCorners:self.headerImg cornersSize:10];
 }
 
 
@@ -38,6 +40,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)loginAction:(id)sender {
+    
+    ZQUserModel *model = [ZQFMDBTool qureyUserWithUserName:@"10086"];
+    if (model) {
+        [ZQExtraUnit showAlertWithTitle:@"登录成功"];
+    }
 }
 - (IBAction)registAction:(id)sender {
 }

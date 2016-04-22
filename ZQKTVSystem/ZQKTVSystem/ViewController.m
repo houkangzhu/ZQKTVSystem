@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "ZQMainLoginVC.h"
 @interface ViewController ()
 
 @end
@@ -28,7 +28,24 @@
 
 - (IBAction)buttonAction:(UIButton *)sender {
     
+    switch (sender.tag) {
+        case 100: //登录
+        {
+            [self loginAction];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
+///登录
+- (void)loginAction {
+    ZQMainLoginVC *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"ZQMainLoginVC"];
+    [self.navigationController pushViewController:loginVC animated:YES];
+    
+}
 
 @end

@@ -34,27 +34,45 @@
 #define kAccountDidlogin    @"accountDidLogin"
 
 @implementation ZQAccountTools
-
+{
+    BOOL _didLogin;
+}
 SingleImplementation(ZQAccountTools)
 
-- (void)loginWithUserName:(NSString *)userName passworld:(NSString *)psw type:(ZQAccountType)accType {
+- (void)loginWithUser:(ZQUserModel *)user{
     if (!_currentAccount) {
         _currentAccount = [[ZQAccount alloc] init];
     }
-    _currentAccount.userName = userName;
-    _currentAccount.md5Psd = psw;
-    _currentAccount.accountType = accType;
+    _currentAccount.userName = user.userName;
+    _currentAccount.passWord = user.passWord;
+    _currentAccount.userType = user.userType;
+    _currentAccount.userID = user.userID;
     
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAccountDidlogin];
-    [self saveAccount];
+    _didLogin = YES;
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAccountDidlogin];
+//    [self saveAccount];
 }
 
+- (void)exitCurrentAccount {
+    _didLogin = NO;
+}
+
+- (ZQAccount *)currentAccount {
+    if (!_didLogin) {
+        return nil;
+    }
+    
+    return _currentAccount;
+}
+
+/*
 - (void)exitCurrentAccount {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kAccountDidlogin];
     [self enumerateAccountAllPropertyUsingBlock:^(NSString *propertyName) {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:propertyName];
     }];
 }
+ */
 
 - (void)saveAccount {
     [self enumerateAccountAllPropertyUsingBlock:^(NSString *propertyName) {
@@ -84,6 +102,7 @@ SingleImplementation(ZQAccountTools)
     free(property_list);
 }
 
+/*
 - (ZQAccount *)CurrentAccount {
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kAccountDidlogin]) {
         return nil;
@@ -94,5 +113,5 @@ SingleImplementation(ZQAccountTools)
     }
     return _currentAccount;
 }
-
+*/
 @end

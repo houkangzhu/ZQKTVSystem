@@ -10,6 +10,8 @@
 
 @interface ZQBaseViewController ()
 
+@property (nonatomic, strong) MBProgressHUD *HUD;
+
 @end
 
 @implementation ZQBaseViewController
@@ -33,7 +35,11 @@
         
         return;
     }
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    
+    UIButton *backBtn = [ZQExtraUnit createButtonWithTitle:@"返回" frame:CGRectMake(10, 10, 60, 40) nomImage:nil taget:self select:@selector(backAction)];
+    [backBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [backBtn setTitleColor:kWhiteColor forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
 
 - (void)backAction {

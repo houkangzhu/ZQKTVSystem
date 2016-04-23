@@ -29,15 +29,40 @@
 //
 
 #import "ZQUserModel.h"
+#import "ZQFileManager.h"
 #include <objc/runtime.h>
 @implementation ZQUserModel
 
 + (void)initialize {
 //    [super initialize];
-    BOOL createOK = [ZQFMDBTool createUserTabel];
-    NSLog(@"创建用户表---%d-", createOK);
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        BOOL createOK = [ZQFMDBTool createUserTabel];
+        NSLog(@"创建用户表---%d-", createOK);
+    });
 }
 
+- (NSString *)HeadPath {
+    return [ZQFileManager getHeaderPathWithImgName:_userName];
+}
+
+- (NSString *)getUserTypeDes {
+    switch (_userType) {
+        case ZQUserTypeCommon:
+            return @"普通用户";
+            break;
+            
+        case ZQUserTypeBoss:
+            return @"大管理员";
+            break;
+        case ZQUserTypeAdmin:
+            return @"小管理员";
+            break;
+        default:
+            return @"未知类型用户";
+            break;
+    }
+}
 
 
 + (NSString *)getCreateTableSQL {

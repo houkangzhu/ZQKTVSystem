@@ -29,7 +29,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #define kSystemSongDBName   @"systemSongDatabase.db"
 
 #define kUserDatabaseName   @"userDatabase.db"
@@ -48,5 +47,11 @@
 + (NSString *)getSystemSongDBPath;
 
 + (NSString *)getUserDatabasePath;
+
+@end
+
+@interface ZQFileManager (ImageSource)
+
++ (NSString *)getHeaderPathWithImgName:(NSString *)imgName;
 
 @end

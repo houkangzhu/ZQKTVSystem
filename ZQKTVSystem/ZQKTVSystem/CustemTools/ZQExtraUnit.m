@@ -30,6 +30,8 @@
 
 #import "ZQExtraUnit.h"
 
+
+
 @implementation ZQExtraUnit
 
 + (void)viewSetCorners:(UIView *)view cornersSize:(CGFloat)corners {
@@ -90,5 +92,65 @@
 
 + (void)showAlertWithTitle:(NSString *)title {
     [[[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+}
+
++ (void)showInfo:(NSString *)info {
+    
+}
+
++ (CGFloat)textGetWidth:(NSString *)text font:(UIFont *)font maxHeight:(CGFloat)maxHeight {
+
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+    CGRect textRect = [text boundingRectWithSize:CGSizeMake(MAXFLOAT, maxHeight) options: NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    return textRect.size.width;
+}
+
+
++ (CGFloat)textGetHeight:(NSString *)text font:(UIFont *)font maxWidth:(CGFloat)maxWidth {
+    //    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(MAXFLOAT, maxHeight) lineBreakMode:UILineBreakModeWordWrap];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    NSDictionary *attributes = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGRect textRect = [text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributes context:nil];
+    return textRect.size.height;
+}
+
+
+
++ (UIWindow *)getKeyWindow {
+    return [UIApplication sharedApplication].delegate.window;
+}
+
+/**
+ UIGraphicsBeginImageContext(size);
+ 
+ [imagedrawInRect:CGRectMake(0,0,size.width,size.height)];
+ 
+ UIImage*newImage=UIGraphicsGetImageFromCurrentImageContext();
+ 
+ UIGraphicsEndImageContext();
+ 
+ returnnewImage;
+ */
+
++ (UIImage *)zoomImage:(UIImage *)oldImage MinSize:(CGFloat)minSize {
+    CGSize imgSize = oldImage.size;
+    CGSize newSize = CGSizeZero;
+    if (imgSize.width>imgSize.height) {
+        newSize.height = minSize;
+        newSize.width = minSize*(imgSize.width/imgSize.height);
+    }else {
+        newSize.width = minSize;
+        newSize.height = minSize*(imgSize.height/imgSize.width);
+    }
+    UIGraphicsBeginImageContext(newSize);
+    [oldImage drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext()
+    ;
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 @end

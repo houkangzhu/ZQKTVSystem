@@ -47,9 +47,14 @@ typedef NS_ENUM(NSUInteger, ZQUserType) {
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *passWord;
+//@property (nonatomic, strong) NSString *headPath;
 //@property (nonatomic, strong) NSString *age;
 //@property (nonatomic, strong) NSString *sex;
 @property (nonatomic, assign) ZQUserType userType;
+
+- (NSString *)HeadPath;
+
+- (NSString *)getUserTypeDes;
 
 + (NSString *)getCreateTableSQL;
 

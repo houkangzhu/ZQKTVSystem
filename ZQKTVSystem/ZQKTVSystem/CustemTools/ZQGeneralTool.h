@@ -20,6 +20,12 @@
 #import "ZQUserModel.h"
 #import "ZQSongModel.h"
 #import "ZQFMDBTool.h"
+#import "ZQAlertView.h"
+#import "NSString+MD5.h"
+
+#import "UIAlertView+ZQAction.h"
+#import "UIActionSheet+ZQAction.h"
+#import "MBProgressHUD.h"
 //************Define****************
 
 #define kScrenWidth      ([UIScreen mainScreen].bounds.size.width)
@@ -33,6 +39,15 @@
 
 static const CGFloat kBodyFontSize = 14.0;
 static const CGFloat kHeadFontSize = 16.0;
+
+//************************************
+
+///文字提示
+#define __showAlert(text)   [ZQAlertView showTitle:text]
+///显示加载进度
+#define __showHUD           [ZQAlertView showProgressHUD]
+///隐藏加载进度
+#define __hidenHUD          [ZQAlertView hidenProgressHUD]
 
 //********************tool************************
 //----------------------ABOUT COLOR 颜色相关 ----------------------------

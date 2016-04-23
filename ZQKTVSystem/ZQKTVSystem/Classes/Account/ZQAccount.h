@@ -29,18 +29,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZQUserModel.h"
+//typedef NS_ENUM(NSUInteger, ZQAccountType) {
+//    ZQAccountTypeUser,
+//    ZQAccountTypeAdmin,
+//};
 
-typedef NS_ENUM(NSUInteger, ZQAccountType) {
-    ZQAccountTypeUser,
-    ZQAccountTypeAdmin,
-};
+@interface ZQAccount : ZQUserModel
 
-@interface ZQAccount : NSObject
-
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *md5Psd;
-
-@property (nonatomic, assign) ZQAccountType accountType;
+//@property (nonatomic, strong) NSString *userName;
+//@property (nonatomic, strong) NSString *md5Psd;
+//
+//@property (nonatomic, assign) ZQAccountType accountType;
 
 
 @end

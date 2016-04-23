@@ -20,6 +20,62 @@
 
 @implementation ZQRegisteViewController
 
+///注册摇一摇
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[UIApplication sharedApplication]setApplicationSupportsShakeToEdit:YES];
+    
+    [self becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self resignFirstResponder];
+}
+
+#pragma mark - ShakeToEdit 摇动手机之后的回调方法
+- (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    
+    //检测到摇动开始
+    
+    if (motion == UIEventSubtypeMotionShake) {
+        
+        [self showAdminRegist];
+    }
+    
+}
+
+
+- (void)showAdminRegist {
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput
+    ;
+    
+    alert.title = @"管理员注册";
+    
+    UITextField *nameTf = [alert textFieldAtIndex:0];
+    nameTf.placeholder = @"输入用户名";
+    
+    UITextField *pswTF = [alert textFieldAtIndex:1];
+    pswTF.placeholder = @"输入密码";
+    
+    [alert addButtonWithTitle:@"取消"];
+    [alert addButtonWithTitle:@"确定"];
+    [alert setButttonAction:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (stringIsEmpty(nameTf.text) || stringIsEmpty(pswTF.text)) {
+            return ;
+        }
+        if (buttonIndex == 1) {
+            [self registeWithUserName:nameTf.text psw:pswTF.text type:ZQUserTypeBoss];
+        }
+    }];
+    [alert show];
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -46,10 +102,14 @@
         return;
     }
     
+    [self registeWithUserName:self.userNameTF.text psw:self.passwordTF.text type:ZQUserTypeCommon];
+}
+
+- (void)registeWithUserName:(NSString *)name psw:(NSString *)psw type:(ZQUserType)userType {
     ZQUserModel *newUser = [ZQUserModel new];
-    newUser.userName = self.userNameTF.text;
-    newUser.passWord = self.passwordTF.text;
-    newUser.userType = ZQUserTypeCommon;
+    newUser.userName = name;
+    newUser.passWord = [psw MD5Hash];
+    newUser.userType = userType;
     
     BOOL insertOK = [ZQFMDBTool insertUserToDatabase:newUser];
     
@@ -60,7 +120,6 @@
         self.passwordTF.text = @"";
     }
 }
-
 
 /*
 #pragma mark - Navigation

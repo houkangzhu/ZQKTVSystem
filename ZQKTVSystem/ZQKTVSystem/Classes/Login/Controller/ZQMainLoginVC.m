@@ -7,7 +7,7 @@
 //
 
 #import "ZQMainLoginVC.h"
-
+#import "ZQLoginViewController.h"
 @interface ZQMainLoginVC ()
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *registBtn;
@@ -41,10 +41,7 @@
 }
 - (IBAction)loginAction:(id)sender {
     
-    ZQUserModel *model = [ZQFMDBTool qureyUserWithUserName:@"10086"];
-    if (model) {
-        [ZQExtraUnit showAlertWithTitle:@"登录成功"];
-    }
+    
 }
 - (IBAction)registAction:(id)sender {
 }

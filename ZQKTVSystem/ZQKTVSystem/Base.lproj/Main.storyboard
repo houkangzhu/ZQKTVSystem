@@ -251,6 +251,9 @@
                     <navigationItem key="navigationItem" id="Bs8-g2-Gjh"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="logBtn" destination="c78-Lm-ARd" id="Agf-QV-7f3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,9 +263,15 @@
         <scene sceneID="pIR-Jz-TwD">
             <objects>
                 <navigationController id="OHz-Nu-Q6V" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8oj-mD-CKm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lVl-PX-He1"/>
@@ -271,6 +280,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="noN-wC-tvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-158" y="437"/>
+        </scene>
+        <!--系统管理-->
+        <scene sceneID="KBW-w8-XvR">
+            <objects>
+                <viewController restorationIdentifier="ZQAdminMainController" storyboardIdentifier="ZQAdminMainController" title="系统管理" id="7N7-02-z7f" customClass="ZQAdminMainController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HhS-0R-pTf"/>
+                        <viewControllerLayoutGuide type="bottom" id="3pH-1p-S7P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XW0-oG-WM8">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-8T-lzz">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="YAT-Zv-43W"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="7N7-02-z7f" id="4Bi-ho-SO8"/>
+                                    <outlet property="delegate" destination="7N7-02-z7f" id="t2Z-lR-glK"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5y2-eq-BSs">
+                                <rect key="frame" x="208" y="0.0" width="459" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iF-Ba-prd">
+                                <rect key="frame" x="200" y="0.0" width="2" height="375"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="2" id="b5l-Vo-B3c"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3iF-Ba-prd" firstAttribute="leading" secondItem="cQc-8T-lzz" secondAttribute="trailing" id="1vw-FK-4cS"/>
+                            <constraint firstItem="5y2-eq-BSs" firstAttribute="top" secondItem="cQc-8T-lzz" secondAttribute="top" id="4Xe-jF-gMY"/>
+                            <constraint firstItem="3iF-Ba-prd" firstAttribute="top" secondItem="cQc-8T-lzz" secondAttribute="top" id="6oW-Uu-K8i"/>
+                            <constraint firstItem="3iF-Ba-prd" firstAttribute="bottom" secondItem="cQc-8T-lzz" secondAttribute="bottom" id="A91-ds-DEZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5y2-eq-BSs" secondAttribute="trailing" id="MA6-oS-WQK"/>
+                            <constraint firstItem="cQc-8T-lzz" firstAttribute="top" secondItem="XW0-oG-WM8" secondAttribute="top" id="N0Q-cl-2YH"/>
+                            <constraint firstItem="5y2-eq-BSs" firstAttribute="leading" secondItem="cQc-8T-lzz" secondAttribute="trailing" constant="8" id="elm-Y6-FNx"/>
+                            <constraint firstItem="3pH-1p-S7P" firstAttribute="top" secondItem="5y2-eq-BSs" secondAttribute="bottom" id="f08-ix-hds"/>
+                            <constraint firstItem="3pH-1p-S7P" firstAttribute="top" secondItem="cQc-8T-lzz" secondAttribute="bottom" id="hpC-vp-Los"/>
+                            <constraint firstItem="cQc-8T-lzz" firstAttribute="leading" secondItem="XW0-oG-WM8" secondAttribute="leading" id="oVn-Ce-woY"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="rightView" destination="5y2-eq-BSs" id="XkX-gX-95C"/>
+                        <outlet property="tableView" destination="cQc-8T-lzz" id="F8o-Xa-yNH"/>
+                        <outlet property="tableViewWidth" destination="YAT-Zv-43W" id="FJy-pu-xA2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J6j-gN-EFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-158.5" y="982.5"/>
         </scene>
     </scenes>
     <resources>

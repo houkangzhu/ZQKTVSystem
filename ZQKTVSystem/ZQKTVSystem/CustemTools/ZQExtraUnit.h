@@ -29,6 +29,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 /**
  *  快速工具
  */
@@ -69,4 +70,16 @@
                    textAlignment:(NSTextAlignment)textAlignment;
 
 + (void)showAlertWithTitle:(NSString *)title;
+
++ (void)showInfo:(NSString *)info;
+
+
++ (CGFloat)textGetWidth:(NSString *)text font:(UIFont *)font maxHeight:(CGFloat)maxHeight;
+
++ (CGFloat)textGetHeight:(NSString *)text font:(UIFont *)font maxWidth:(CGFloat)maxWidth ;
+
++ (UIWindow *)getKeyWindow;
+
+
++ (UIImage *)zoomImage:(UIImage *)oldImage MinSize:(CGFloat)minSize;
 @end

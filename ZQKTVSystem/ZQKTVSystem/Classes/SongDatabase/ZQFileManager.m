@@ -82,3 +82,17 @@
 }
 
 @end
+
+@implementation ZQFileManager (ImageSource)
+
++ (NSString *)getHeaderPathWithImgName:(NSString *)imgName {
+    NSString *folerPath = [self getDocumentPathWithFolderName:@"Resources"];
+    [self filePathCreat:folerPath];
+    
+    NSString *headerPath = [folerPath stringByAppendingPathComponent:@"headers"];
+    [self filePathCreat:headerPath];
+    
+    return [headerPath stringByAppendingPathComponent:imgName];
+}
+
+@end

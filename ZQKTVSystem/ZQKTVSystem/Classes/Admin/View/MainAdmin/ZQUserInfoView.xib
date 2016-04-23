@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZQUserInfoView">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="285"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户类型:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deA-Ty-7RT">
+                    <rect key="frame" x="174" y="180" width="69" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gX-wO-1on">
+                    <rect key="frame" x="182" y="150" width="53" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cig-GV-uu5">
+                    <rect key="frame" x="178" y="70" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Cig-GV-uu5" secondAttribute="height" id="ARt-ue-wRy"/>
+                        <constraint firstAttribute="height" constant="60" id="gac-Jf-FZM"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="head_icon_df.jpg"/>
+                    <connections>
+                        <action selector="headTouchAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="4ZR-Rw-fUc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIn-pE-mhM">
+                    <rect key="frame" x="138" y="215" width="140" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.21381304785759037" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="8sD-a0-ycI"/>
+                        <constraint firstAttribute="height" constant="40" id="tYo-yE-fTL"/>
+                    </constraints>
+                    <state key="normal" title="退出登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="exitAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="NBM-zA-cbh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CIn-pE-mhM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9zg-iH-VLk"/>
+                <constraint firstItem="Cig-GV-uu5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="RGe-ck-Ya2"/>
+                <constraint firstItem="9gX-wO-1on" firstAttribute="top" secondItem="Cig-GV-uu5" secondAttribute="bottom" constant="20" id="YUk-EF-2tc"/>
+                <constraint firstItem="deA-Ty-7RT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YpL-YH-6m0"/>
+                <constraint firstItem="9gX-wO-1on" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="i4m-Go-ADq"/>
+                <constraint firstItem="Cig-GV-uu5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="shU-Zo-lVt"/>
+                <constraint firstAttribute="bottom" secondItem="CIn-pE-mhM" secondAttribute="bottom" constant="30" id="tht-6p-1dF"/>
+                <constraint firstItem="deA-Ty-7RT" firstAttribute="top" secondItem="9gX-wO-1on" secondAttribute="bottom" constant="10" id="zY8-Db-ol0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="_accountTypeLB" destination="deA-Ty-7RT" id="Mdh-Tk-ufV"/>
+                <outlet property="_exitBtn" destination="CIn-pE-mhM" id="DcJ-js-dLS"/>
+                <outlet property="_headerImag" destination="Cig-GV-uu5" id="wso-2T-9bn"/>
+                <outlet property="_userNameLb" destination="9gX-wO-1on" id="eft-gL-3As"/>
+            </connections>
+            <point key="canvasLocation" x="281" y="153.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="head_icon_df.jpg" width="109" height="109"/>
+    </resources>
+</document>

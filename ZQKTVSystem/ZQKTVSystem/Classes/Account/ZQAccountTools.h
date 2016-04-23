@@ -33,9 +33,9 @@
 @interface ZQAccountTools : NSObject
 SingleInterface(ZQAccountTools)
 
-@property (nonatomic, readonly, strong) ZQAccount *currentAccount;
+@property (nonatomic, strong) ZQAccount *currentAccount;
 
-- (void)loginWithUserName:(NSString *)userName passworld:(NSString *)psw type:(ZQAccountType)accType;
+- (void)loginWithUser:(ZQUserModel *)user;
 
 - (void)exitCurrentAccount;
 
